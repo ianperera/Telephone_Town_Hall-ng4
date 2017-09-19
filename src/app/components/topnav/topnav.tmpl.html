@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Telephone Town Hall</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" *ngIf="showTopLinks">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/setup" routerLinkActive="active-link">SETUP</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/control" routerLinkActive="active-link">CONTROL</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/listen" routerLinkActive="active-link">LISTEN</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/report" routerLinkActive="active-link">REPORT</a>
+            </li>
+        </ul>
+        <div *ngIf="authUser" ngbDropdown class="d-inline-block navbar-nav">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{authUser?.data.fullname}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a class="dropdown-item" href="#" (click)="logout($event)">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
